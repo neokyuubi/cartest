@@ -8,10 +8,11 @@ export function Rings()
 
     useFrame((state) =>
     {
+        let elapsed = state.clock.getElapsedTime();
         for (let index = 0; index < itemsRef.current.length; index++)
         {
             let mesh = itemsRef.current[index];
-            let z = (index - 7) * 3.5;
+            let z = (index - 7) * 3.5 + ((elapsed * 0.4) % 3.5) * 2;
             mesh.position.set(0, 0, -z);
 
             let distance = Math.abs(z);
